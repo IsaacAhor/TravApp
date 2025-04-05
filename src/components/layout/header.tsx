@@ -24,7 +24,7 @@ export function Header() {
           <Link href="/how-it-works" className="text-zinc-400 hover:text-primary transition-colors">
             How TravApp Works
           </Link>
-          <Link href="/about" className="text-zinc-400 hover:text-primary transition-colors">
+          <Link href="/tripestimate" className="text-zinc-400 hover:text-primary transition-colors">
             Estimate Your Monthly Plan
           </Link>
         </nav>
