@@ -4,7 +4,8 @@ import { useState } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import FlightEstimator from "@/components/FlightEstimator";
-import TripSummary from "@/components/TripSummary";
+import dynamic from "next/dynamic";
+const TripSummary = dynamic(() => import("@/components/TripSummary"), { ssr: false });
 import AddonsSelector from "@/components/AddonsSelector";
 
 const addonPrices: Record<string, number> = {

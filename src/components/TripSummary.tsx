@@ -19,6 +19,7 @@ export default function TripSummary({
 }: TripSummaryProps) {
   const [months, setMonths] = useState(12);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [showToast, setShowToast] = useState(false);
 
   // Load saved trip on mount
   const [loaded, setLoaded] = useState(false);
@@ -41,7 +42,7 @@ export default function TripSummary({
   const monthly = (subtotal / months).toFixed(2);
 
   return (
-    <div className="max-w-3xl mx-auto my-12 p-6 border border-zinc-700 rounded-xl bg-zinc-900/50 backdrop-blur-sm">
+    <div className="max-w-3xl mx-auto my-12 p-6 border border-zinc-700 rounded-xl bg-zinc-900/50 backdrop-blur-sm relative">
       {!showConfirm && (
         <>
           <h2 className="text-2xl font-bold mb-6">Trip Summary</h2>
@@ -67,7 +68,7 @@ export default function TripSummary({
               <span>💳 Monthly ({months} months)</span>
               <span>${monthly}/month</span>
             </div>
-      </div>
+          </div>
 
           <div className="flex flex-wrap gap-4 mb-6">
             {[6, 9, 12].map((m) => (
@@ -96,7 +97,8 @@ export default function TripSummary({
                   months,
                 };
                 localStorage.setItem("tripPlan", JSON.stringify(tripData));
-                alert("Trip saved!");
+                setShowToast(true);
+                setTimeout(() => setShowToast(false), 3000);
               }}
               className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition"
             >
@@ -113,6 +115,17 @@ export default function TripSummary({
               Clear Trip
             </button>
           </div>
+
+          {showToast && (
+            <div
+              aria-live="polite"
+              className={`mb-4 px-4 py-2 rounded bg-green-600 text-white text-center transition-opacity duration-500 ${
+                showToast ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              Trip saved!
+            </div>
+          )}
 
           <button
             onClick={() => {
