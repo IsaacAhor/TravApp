@@ -33,7 +33,7 @@ export function Header() {
           <Button variant="link" className="text-zinc-400 hover:text-primary transition-colors hidden md:inline-flex">
             Sign In
           </Button>
-          <Link href="/" className="flex">
+          <Link href="/tripestimate" className="flex">
             <Button className="bg-primary hover:bg-primary/80 text-white flex items-center gap-2 w-full">
               Join Waitlist
               <ArrowRight className="w-4 h-4" />

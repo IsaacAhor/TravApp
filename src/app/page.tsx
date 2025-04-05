@@ -36,10 +36,12 @@ export default function Home() {
                 placeholder="Enter your email"
                 className="bg-zinc-800/50 border-0 focus-visible:ring-primary"
               />
-              <Button className="bg-primary hover:bg-primary/80 text-white">
-                Join Waitlist
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Button>
+              <a href="/tripestimate">
+                <Button className="bg-primary hover:bg-primary/80 text-white">
+                  Join Waitlist
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </a>
             </div>
             <p className="text-zinc-500 text-sm text-center mt-2">
               Join 1,000+ travelers on the waitlist!

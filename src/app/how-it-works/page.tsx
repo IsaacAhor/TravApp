@@ -13,7 +13,7 @@ export default function HowItWorksPage() {
             Plan your perfect trip to Ghana or Nigeria with ease, flexibility, and personalized AI-powered recommendations.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 text-center">
               <div className="flex justify-center gap-3 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -51,6 +51,29 @@ export default function HowItWorksPage() {
             <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 text-center">
               <div className="flex justify-center gap-3 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2v8" />
+                  <path d="m4.93 10.93 1.41 1.41" />
+                  <path d="M2 18h2" />
+                  <path d="M20 18h2" />
+                  <path d="m19.07 10.93-1.41 1.41" />
+                  <path d="M22 22H2" />
+                  <path d="m8 22 4-10 4 10" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 6.1H3" />
+                  <path d="M21 12.1H3" />
+                  <path d="M15.1 18H3" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Step 3: Choose a Monthly Plan</h3>
+              <p className="text-zinc-400">
+                Pick a 6, 9, or 12-month payment plan. TravApp helps you break down your trip cost into manageable monthly payments—no stress, no surprises.
+              </p>
+            </div>
+
+            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 text-center">
+              <div className="flex justify-center gap-3 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="2" width="20" height="20" rx="2" ry="2" />
                   <path d="M7 7h10v10H7z" />
                 </svg>
@@ -59,7 +82,7 @@ export default function HowItWorksPage() {
                   <circle cx="12" cy="12" r="10" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Step 3: Travel with Ease</h3>
+              <h3 className="text-xl font-semibold mb-2">Step 4: Travel with Ease</h3>
               <p className="text-zinc-400">
                 Get a seamless itinerary, local insights, and real-time support for your trip to Ghana or Nigeria.
               </p>
@@ -192,6 +215,16 @@ export default function HowItWorksPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <a href="/tripestimate">
+            <button className="px-8 py-4 rounded-lg bg-primary hover:bg-primary/80 text-white font-semibold text-lg transition w-full md:w-auto">
+              Estimate My Monthly Plan
+            </button>
+          </a>
         </div>
       </section>
 

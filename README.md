@@ -1,44 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TravApp Project
 
-## Getting Started
+## Key Features Implemented
 
-First, run the development server:
+- **Flight Price Estimator**: Calculates estimated flight cost based on origin region, destination, month, and class, including a $100 pickup fee.
+- **Trip Summary**: Dynamically updates subtotal and monthly payment based on flight cost, add-ons, and number of travelers.
+- **Add-on Experiences**: Selectable add-ons with descriptions and prices, updating the total cost live.
+- **Payment Plan**: Choose 6, 9, or 12-month plans, with monthly payment calculated dynamically.
+- **Lock My Plan**: Saves the trip plan to localStorage and shows a confirmation screen.
+- **Waitlist**: After locking, user can join the waitlist with a form (or button).
+- **Persistent Trip Plan**: Loads saved trip plan from localStorage on return, with option to start over.
+- **How It Works Page**: 4-step process with clear visuals, including booking, customizing, choosing payment, and traveling.
+- **Navigation**: Navbar links to all key pages, including the estimator.
+- **Styling**: Responsive, dark theme, consistent UI components.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Notes
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Project Updates
-
-- **2025-04-04:** Removed the logo image from the header component (`src/components/layout/header.tsx`).
-- **2025-04-04:** Added features list and mini-itinerary preview to the main page (`src/app/page.tsx`).
-- **2025-04-04:** Updated the features subheading text on the main page (`src/app/page.tsx`).
-- **2025-04-04:** Replaced hero section description with features text and removed separate features subheading (`src/app/page.tsx`).
-- **2025-04-04:** Refined the hero section description text (`src/app/page.tsx`).
+- Pickup fee is included in flight estimate, not shown separately.
+- All data is static and local, no backend or API.
+- Subtotal formula: (Flight + Add-ons) × Travelers.
+- Flight cost is passed from estimator to summary via lifted state.
+- Add-ons total is passed from selector to summary via lifted state.
+- Trip plan saved in localStorage on lock, cleared on start over.
+- The app is designed to be extended with backend integration in the future.
