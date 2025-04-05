@@ -14,20 +14,20 @@ export default function FAQsPage() {
 
           <div className="max-w-3xl mx-auto space-y-12">
             <div>
-              <h3 className="text-sm font-normal mb-4">
-                Step 1: Trip Basics <span className="text-zinc-400">(affects price cost)</span>
+              <h3 className="text-lg font-medium mb-4">
+                Step 1: Trip Basics <span className="text-xs text-zinc-400">(affects price cost)</span>
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block mb-2 text-sm font-medium">Origin City</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-x-12 md:gap-y-4">
+                <div className="flex flex-col">
+                  <label className="mb-1 text-sm font-medium">Origin City</label>
                   <input
                     type="text"
                     placeholder="e.g., New York"
                     className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium">Destination</label>
+                <div className="flex flex-col">
+                  <label className="mb-1 text-sm font-medium">Destination</label>
                   <select
                     className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   >
@@ -36,15 +36,15 @@ export default function FAQsPage() {
                     <option value="Nigeria">Nigeria</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium">Travel Dates</label>
+                <div className="flex flex-col">
+                  <label className="mb-1 text-sm font-medium">Travel Dates</label>
                   <input
                     type="date"
                     className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
-                <div>
-                  <label className="block mb-2 text-sm font-medium">Number of Travelers</label>
+                <div className="flex flex-col">
+                  <label className="mb-1 text-sm font-medium">Number of Travelers</label>
                   <input
                     type="number"
                     min="1"
@@ -59,8 +59,8 @@ export default function FAQsPage() {
             </div>
 
             <div>
-              <h3 className="text-sm font-normal mb-4">
-                Step 2: Choose Flight Class <span className="text-zinc-400">(affects flight cost)</span>
+              <h3 className="text-lg font-medium mb-4">
+                Step 2: Choose Flight Class <span className="text-xs text-zinc-400">(affects flight cost)</span>
               </h3>
               <div className="flex flex-wrap gap-4">
                 <label className="px-4 py-2 rounded-md border border-zinc-700 bg-zinc-800/50 hover:bg-primary hover:text-white transition cursor-pointer">
@@ -79,8 +79,10 @@ export default function FAQsPage() {
             </div>
           </div>
 
-          <div className="max-w-5xl mx-auto mt-16">
-            <h3 className="text-lg font-medium mb-6">Step 3: Add-On Custom Experiences (With Estimated Costs)</h3>
+          <div className="max-w-3xl mx-auto mt-16">
+            <h3 className="text-lg font-medium mb-6">
+              Step 3: Add-On Custom Experiences <span className="text-xs text-zinc-400">(With Estimated Costs)</span>
+            </h3>
             <div className="overflow-x-auto">
               <table className="min-w-full border border-zinc-700 text-sm table-fixed">
                 <thead className="bg-zinc-900/50">
