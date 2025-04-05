@@ -222,7 +222,7 @@ export default function HowItWorksPage() {
         <div className="max-w-7xl mx-auto text-center">
           <a href="/tripestimate">
             <button className="px-8 py-4 rounded-lg bg-primary hover:bg-primary/80 text-white font-semibold text-lg transition w-full md:w-auto">
-              Estimate My Monthly Plan
+              Estimate My Trip
             </button>
           </a>
         </div>

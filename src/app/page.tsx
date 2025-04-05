@@ -23,9 +23,12 @@ export default function Home() {
               Flights & airport pick-up, chauffeurs, tours, events, parties and more —your entire trip, all in one app
             </p>
             {/* Mini-itinerary preview */}
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 space-y-2">
               <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow-sm">
-                Flight to Accra + Airport Pickup + Guided Tours + Afronation Tickets = <span className="font-bold text-primary">$2,250</span> — or <span className="font-bold text-primary">$187/month</span>
+                ✓ Flight to Accra + Airport Pickup = Base
+              </p>
+              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow-sm">
+                ➕ Guided Tours + Afronation Tickets = Add-ons
               </p>
             </div>
           </div>
@@ -51,6 +54,54 @@ export default function Home() {
           <div className="mt-12 flex justify-center">
             <ArrowRight className="h-8 w-8 text-zinc-600 animate-bounce" />
           </div>
+        </div>
+      </section>
+
+      <section className="py-4 px-4 bg-primary/10 border-y border-primary text-center overflow-hidden">
+        <p className="text-lg md:text-xl font-semibold text-primary animate-pulse">
+          1,200+ travelers are currently building their December trips to Ghana & Nigeria.
+        </p>
+      </section>
+
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Trip Estimator Preview</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div>
+              <label className="block mb-2 text-sm font-medium">Origin</label>
+              <select className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                <option>USA</option>
+                <option>UK</option>
+                <option>Canada</option>
+                <option>EU</option>
+                <option>Africa</option>
+                <option>Asia</option>
+                <option>Australia</option>
+              </select>
+            </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium">Destination</label>
+              <select className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                <option>Ghana</option>
+                <option>Nigeria</option>
+              </select>
+            </div>
+            <div>
+              <label className="block mb-2 text-sm font-medium">Travelers</label>
+              <input
+                type="number"
+                min="1"
+                max="5"
+                defaultValue="1"
+                className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+            </div>
+          </div>
+          <a href="/tripestimate">
+            <button className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition">
+              Estimate My Trip
+            </button>
+          </a>
         </div>
       </section>
 
@@ -183,6 +234,31 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-16 px-4">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 text-center">FAQs</h2>
+          <div className="space-y-4">
+            <details className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4">
+              <summary className="cursor-pointer font-semibold">What’s included in the base plan?</summary>
+              <p className="mt-2 text-zinc-400">
+                The base plan covers your round-trip flight (economy class) and airport pickup. You can customize with add-ons like tours, events, and more.
+              </p>
+            </details>
+            <details className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4">
+              <summary className="cursor-pointer font-semibold">How does the payment plan work?</summary>
+              <p className="mt-2 text-zinc-400">
+                You can split your total trip cost into 6, 9, or 12 monthly payments. Pay over time before your departure date.
+              </p>
+            </details>
+            <details className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4">
+              <summary className="cursor-pointer font-semibold">Can I cancel anytime?</summary>
+              <p className="mt-2 text-zinc-400">
+                Yes, you can cancel or reschedule subject to applicable fees. Each service has its own cancellation policy.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </main>

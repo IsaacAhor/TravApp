@@ -25,7 +25,7 @@ export function Header() {
             How TravApp Works
           </Link>
           <Link href="/tripestimate" className="text-zinc-400 hover:text-primary transition-colors">
-            Estimate Your Monthly Plan
+            Estimate My Trip
           </Link>
         </nav>
 
