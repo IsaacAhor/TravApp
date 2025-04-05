@@ -260,6 +260,20 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="py-16 px-4 bg-primary/10 border-t border-primary text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Offer Experiences on TravApp</h2>
+          <p className="text-lg md:text-xl text-zinc-400 mb-6">
+            Join our network of trusted travel partners across Ghana and Nigeria. Reach thousands of travelers building their dream trip.
+          </p>
+          <Link href="/partners/join">
+            <Button className="bg-primary hover:bg-primary/80 text-white px-6 py-3 text-lg">
+              Become a Partner &rarr;
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );

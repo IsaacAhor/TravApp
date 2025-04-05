@@ -67,7 +67,7 @@ export default function TripSummary({
               <span>💳 Monthly ({months} months)</span>
               <span>${monthly}/month</span>
             </div>
-          </div>
+      </div>
 
           <div className="flex flex-wrap gap-4 mb-6">
             {[6, 9, 12].map((m) => (
@@ -83,6 +83,35 @@ export default function TripSummary({
                 {m} months
               </button>
             ))}
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-4 mb-4">
+            <button
+              onClick={() => {
+                const tripData = {
+                  flightCost,
+                  addonsCost,
+                  selectedAddons,
+                  travelers,
+                  months,
+                };
+                localStorage.setItem("tripPlan", JSON.stringify(tripData));
+                alert("Trip saved!");
+              }}
+              className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition"
+            >
+              Save My Trip
+            </button>
+
+            <button
+              onClick={() => {
+                localStorage.removeItem("tripPlan");
+                alert("Saved trip cleared.");
+              }}
+              className="w-full py-3 rounded-md border border-zinc-700 bg-zinc-800/50 hover:bg-primary hover:text-white text-white font-semibold transition"
+            >
+              Clear Trip
+            </button>
           </div>
 
           <button

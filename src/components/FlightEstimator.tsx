@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const regions = ["USA", "UK", "Canada", "EU", "Africa", "Asia", "Australia"];
 const destinations = ["Ghana", "Nigeria"];
@@ -75,7 +75,9 @@ export default function FlightEstimator({ onFlightCostChange }: FlightEstimatorP
   const pickupFee = 100;
   const totalFlightCost = price + pickupFee;
 
-  onFlightCostChange(totalFlightCost);
+  useEffect(() => {
+    onFlightCostChange(totalFlightCost);
+  }, [price, pickupFee]);
 
   return (
     <div className="max-w-3xl mx-auto my-12 p-6 border border-zinc-700 rounded-xl bg-zinc-900/50 backdrop-blur-sm">

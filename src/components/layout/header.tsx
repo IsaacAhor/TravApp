@@ -27,6 +27,9 @@ export function Header() {
           <Link href="/tripestimate" className="text-zinc-400 hover:text-primary transition-colors">
             Estimate My Trip
           </Link>
+          <Link href="/partners/join" className="text-zinc-400 hover:text-primary transition-colors">
+            Partner With Us
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4">

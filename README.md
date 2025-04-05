@@ -1,24 +1,42 @@
-# TravApp Project
+## Partner Features
 
-## Key Features Implemented
+### `/partners/join`
+- Hero section with heading and subheading inviting local providers to partner.
+- Benefits section highlighting advantages (Reach More Travelers, Grow Your Business, No Upfront Cost).
+- "Apply to Partner" form with fields:
+  - Business Name
+  - Category
+  - Description
+  - Location
+  - Price Range
+  - Contact Email
+- Client-side validation for required fields and email format.
+- Integrated with Netlify Forms for submission handling.
+- Displays a success message upon submission.
+- Footer note: "Submissions are reviewed manually. Only vetted local providers will be listed."
 
-- **Flight Price Estimator**: Calculates estimated flight cost based on origin region, destination, month, and class, including a $100 pickup fee.
-- **Trip Summary**: Dynamically updates subtotal and monthly payment based on flight cost, add-ons, and number of travelers.
-- **Add-on Experiences**: Selectable add-ons with descriptions and prices, updating the total cost live.
-- **Payment Plan**: Choose 6, 9, or 12-month plans, with monthly payment calculated dynamically.
-- **Lock My Plan**: Saves the trip plan to localStorage and shows a confirmation screen.
-- **Waitlist**: After locking, user can join the waitlist with a form (or button).
-- **Persistent Trip Plan**: Loads saved trip plan from localStorage on return, with option to start over.
-- **How It Works Page**: 4-step process with clear visuals, including booking, customizing, choosing payment, and traveling.
-- **Navigation**: Navbar links to all key pages, including the estimator.
-- **Styling**: Responsive, dark theme, consistent UI components.
+### Navigation & Homepage
+- "Partner With Us" link added to the top navigation bar, routing to `/partners/join`.
+- Call-to-action section on the homepage with a button linking to `/partners/join`.
 
-## Notes
-
-- Pickup fee is included in flight estimate, not shown separately.
-- All data is static and local, no backend or API.
-- Subtotal formula: (Flight + Add-ons) × Travelers.
-- Flight cost is passed from estimator to summary via lifted state.
-- Add-ons total is passed from selector to summary via lifted state.
-- Trip plan saved in localStorage on lock, cleared on start over.
-- The app is designed to be extended with backend integration in the future.
+### `/partners/directory`
+- Title: "Explore Local Experiences & Services"
+- Subtitle: "Discover our trusted partners — handpicked providers ready to make your trip unforgettable."
+- Prominent "Become a Partner" button linking to `/partners/join`.
+- Filter controls:
+  - Category (dropdown)
+  - Location (dropdown)
+  - Price Range (dropdown)
+- Responsive grid layout displaying mock partner cards with:
+  - Business Name
+  - Category
+  - Short Description
+  - Location
+  - Price Range
+  - "View Details" button
+- Partner details modal:
+  - Displays full partner info including contact email.
+  - "Copy Profile Link" button copies URL with `?partner=slug` to clipboard.
+  - "Close" button to dismiss modal.
+- Deep linking support:
+  - If URL contains `?partner=slug`, the corresponding partner modal opens automatically on page load.
