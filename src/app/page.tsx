@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
@@ -7,6 +9,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Home() {
+  const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (submitted) {
+      const timer = setTimeout(() => {
+        setSubmitted(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [submitted]);
   return (
     <main className="min-h-screen">
       <Header />
@@ -33,23 +45,45 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="max-w-md mx-auto">
-            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 flex gap-2">
-              <Input
-                placeholder="Enter your email"
-                className="bg-zinc-800/50 border-0 focus-visible:ring-primary"
-              />
-              <a href="/tripestimate">
-                <Button className="bg-primary hover:bg-primary/80 text-white">
-                  Join Waitlist
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </a>
-            </div>
-            <p className="text-zinc-500 text-sm text-center mt-2">
-              Join 1,000+ travelers on the waitlist!
-            </p>
-          </div>
+<div className="max-w-md mx-auto">
+  {submitted ? (
+    <div className="bg-green-900/50 border border-green-700 rounded-lg p-4 text-green-300 text-center">
+      🎉 You're on the waitlist! We’ll keep you posted.
+    </div>
+  ) : (
+    <form
+      name="travapp-waitlist"
+      method="POST"
+      data-netlify="true"
+      className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 flex gap-2"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const form = e.target as HTMLFormElement;
+        const data = new FormData(form);
+        fetch("/", {
+          method: "POST",
+          body: data,
+        }).then(() => setSubmitted(true));
+      }}
+    >
+      <input type="hidden" name="form-name" value="travapp-waitlist" />
+      <Input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        className="bg-zinc-800/50 border-0 focus-visible:ring-primary"
+      />
+      <Button type="submit" className="bg-primary hover:bg-primary/80 text-white">
+        Join Waitlist
+        <ArrowRight className="w-4 h-4 ml-2" />
+      </Button>
+    </form>
+  )}
+  <p className="text-zinc-500 text-sm text-center mt-2">
+    Join 1,000+ travelers on the waitlist!
+  </p>
+</div>
 
           <div className="mt-12 flex justify-center">
             <ArrowRight className="h-8 w-8 text-zinc-600 animate-bounce" />
