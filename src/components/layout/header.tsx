@@ -15,9 +15,9 @@ export function Header() {
           <Link href="/#destinations" className="text-zinc-400 hover:text-primary transition-colors">
             Destinations
           </Link>
-          <Link href="/pricing" className="text-zinc-400 hover:text-primary transition-colors">
-            Pricing
-          </Link>
+<Link href="/pricing" className="text-zinc-400 hover:text-primary transition-colors">
+  Touchdown
+</Link>
           <Link href="/features" className="text-zinc-400 hover:text-primary transition-colors">
             Features
           </Link>

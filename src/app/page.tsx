@@ -15,13 +15,13 @@ export default function Home() {
       <section className="py-24 px-4 relative mt-16">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              TravApp — <span className="text-primary">The Future of AI-Driven</span><br />
-              Travel Planning
-            </h1>
-            <p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
-              Flights & airport pick-up, chauffeurs, tours, events, parties and more —your entire trip, all in one app
-            </p>
+<h1 className="text-4xl md:text-5xl font-bold mb-4">
+  TravApp — <span className="text-primary">The Future of AI-Driven</span><br />
+  Travel Planning
+</h1>
+<p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
+  Flights & airport pick-up, chauffeurs, tours, events, parties and more —your entire trip, all in one app
+</p>
             {/* Mini-itinerary preview */}
             <div className="text-center mb-12 space-y-2">
               <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow-sm">
