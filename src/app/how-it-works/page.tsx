@@ -8,7 +8,7 @@ export default function HowItWorksPage() {
 
       <section className="py-24 px-4 relative mt-16">
         <div className="max-w-7xl mx-auto relative z-10">
-          <h1 className="text-3xl md:text-5xl font-bold mb-8 text-center">How TravApp Works</h1>
+          <h1 className="text-3xl md:text-5xl font-bold mb-8 text-center">How It Works</h1>
           <p className="text-lg text-zinc-400 max-w-3xl mx-auto mb-12 text-center">
             Plan your perfect trip to Ghana or Nigeria with ease, flexibility, and personalized AI-powered recommendations.
           </p>
@@ -88,6 +88,16 @@ export default function HowItWorksPage() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-2 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <a href="/tripestimate">
+            <button className="px-8 py-4 rounded-lg bg-primary hover:bg-primary/80 text-white font-semibold text-lg transition w-full md:w-auto">
+              Estimate My Trip
+            </button>
+          </a>
         </div>
       </section>
 
@@ -215,16 +225,6 @@ export default function HowItWorksPage() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <a href="/tripestimate">
-            <button className="px-8 py-4 rounded-lg bg-primary hover:bg-primary/80 text-white font-semibold text-lg transition w-full md:w-auto">
-              Estimate My Trip
-            </button>
-          </a>
         </div>
       </section>
 

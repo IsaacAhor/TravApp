@@ -21,12 +21,9 @@ export function Header() {
           <Link href="/features" className="text-zinc-400 hover:text-primary transition-colors">
             Features
           </Link>
-          <Link href="/how-it-works" className="text-zinc-400 hover:text-primary transition-colors">
-            How TravApp Works
-          </Link>
-          <Link href="/tripestimate" className="text-zinc-400 hover:text-primary transition-colors">
-            Estimate My Trip
-          </Link>
+<Link href="/how-it-works" className="text-zinc-400 hover:text-primary transition-colors">
+  How It Works
+</Link>
           <Link href="/partners/join" className="text-zinc-400 hover:text-primary transition-colors">
             Partner With Us
           </Link>
@@ -37,10 +34,10 @@ export function Header() {
             Sign In
           </Button>
           <Link href="/tripestimate" className="flex">
-            <Button className="bg-primary hover:bg-primary/80 text-white flex items-center gap-2 w-full">
-              Join Waitlist
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+<Button className="bg-primary hover:bg-primary/80 text-white flex items-center gap-2 w-full">
+  Estimate My Trip
+  <ArrowRight className="w-4 h-4" />
+</Button>
           </Link>
         </div>
       </div>
