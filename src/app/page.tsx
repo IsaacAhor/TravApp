@@ -32,16 +32,16 @@ export default function Home() {
               TravApp — <span className="text-primary">The Future of AI-Driven</span><br />
               Travel Planning
             </h1>
-            <p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
-              Flights & airport pick-up chauffeurs tours events parties and more —your entire trip all in one app
+<p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
+              Split your trip into 6, 9, or 12-month plans. Powered by AI.
             </p>
             {/* Mini-itinerary preview */}
             <div className="text-center mb-12 space-y-2">
               <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow w-sm">
                 ✓ Flight to Accra + Airport Pickup = Base
               </p>
-              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow w-sm">
-                ➕ Guided Tours + Afronation Tickets = Add-ons
+<p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow w-sm">
+                ➕ Guided Tours + Afronation Tickets + Add-ons
               </p>
             </div>
           </div>
@@ -197,11 +197,8 @@ export default function Home() {
       {/* Features Overview */}
       <section className="py-16 px-4">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
+<h2 className="text-2xl md:text-3xl font-bold mb-12 text-center">
             Pay Monthly. Travel Stress-Free<br />
-            <span className="text-lg md:text-xl font-normal">
-              Split your trip into 6, 9, or 12-month plans. Powered by AI.
-            </span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
