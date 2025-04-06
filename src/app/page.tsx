@@ -81,8 +81,8 @@ export default function Home() {
                 </Button>
               </form>
             )}
-            <p className="text-zinc-500 text-sm text-center mt-2">
-              Join 1000+ travelers on the waitlist!
+<p className="text-zinc-500 text-sm text-center mt-2">
+              Join 1200+ travelers, including Suhela from Accra!
             </p>
           </div>
 
@@ -221,7 +221,7 @@ export default function Home() {
                   <rect x="8" y="12" width="8" height="6" rx="1" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">AI-Powered Itineraries</h3>
+<h3 className="text-xl font-semibold mb-2">✈️ AI-Powered Itineraries</h3>
               <p className="text-zinc-400 mb-4">
                 Personalized travel plans based on your preferences, budget, and travel style for Ghana and Nigeria.
               </p>
@@ -259,7 +259,7 @@ export default function Home() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Local Expert Network</h3>
+<h3 className="text-xl font-semibold mb-2">🧠 Local Expert Network</h3>
               <p className="text-zinc-400 mb-4">
                 Connect with pre-vetted local guides and experts who can enhance your travel experience in real-time.
               </p>
@@ -297,7 +297,7 @@ export default function Home() {
                   <path d="m9 12 2 2 4-4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Subscription Benefits</h3>
+<h3 className="text-xl font-semibold mb-2">💳 Subscription Benefits</h3>
               <p className="text-zinc-400 mb-4">
                 Flexible subscription tiers with exclusive perks, discounts, and priority access to premium experiences.
               </p>
