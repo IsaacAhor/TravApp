@@ -22,3 +22,13 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
+nextConfig.redirects = async () => {
+  return [
+    {
+      source: '/pricing',
+      destination: '/touchdown',
+      permanent: true,
+    },
+  ];
+};
