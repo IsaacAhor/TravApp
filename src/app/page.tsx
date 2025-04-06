@@ -19,6 +19,7 @@ export default function Home() {
       return () => clearTimeout(timer);
     }
   }, [submitted]);
+
   return (
     <main className="min-h-screen">
       <Header />
@@ -27,63 +28,63 @@ export default function Home() {
       <section className="py-24 px-4 relative mt-16">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
-<h1 className="text-4xl md:text-5xl font-bold mb-4">
-  TravApp — <span className="text-primary">The Future of AI-Driven</span><br />
-  Travel Planning
-</h1>
-<p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
-  Flights & airport pick-up, chauffeurs, tours, events, parties and more —your entire trip, all in one app
-</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              TravApp — <span className="text-primary">The Future of AI-Driven</span><br />
+              Travel Planning
+            </h1>
+            <p className="text-zinc-400 max-w-2xl mx-auto mb-6 whitespace-nowrap">
+              Flights & airport pick-up chauffeurs tours events parties and more —your entire trip all in one app
+            </p>
             {/* Mini-itinerary preview */}
             <div className="text-center mb-12 space-y-2">
-              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow-sm">
+              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow w-sm">
                 ✓ Flight to Accra + Airport Pickup = Base
               </p>
-              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow-sm">
+              <p className="text-lg text-zinc-300 bg-zinc-800/50 inline-block px-4 py-2 rounded-md border border-zinc-700 shadow w-sm">
                 ➕ Guided Tours + Afronation Tickets = Add-ons
               </p>
             </div>
           </div>
 
-<div className="max-w-md mx-auto">
-  {submitted ? (
-    <div className="bg-green-900/50 border border-green-700 rounded-lg p-4 text-green-300 text-center">
-      🎉 You're on the waitlist! We’ll keep you posted.
-    </div>
-  ) : (
-    <form
-      name="travapp-waitlist"
-      method="POST"
-      data-netlify="true"
-      className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 flex gap-2"
-      onSubmit={(e) => {
-        e.preventDefault();
-        const form = e.target as HTMLFormElement;
-        const data = new FormData(form);
-        fetch("/", {
-          method: "POST",
-          body: data,
-        }).then(() => setSubmitted(true));
-      }}
-    >
-      <input type="hidden" name="form-name" value="travapp-waitlist" />
-      <Input
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        required
-        className="bg-zinc-800/50 border-0 focus-visible:ring-primary"
-      />
-      <Button type="submit" className="bg-primary hover:bg-primary/80 text-white">
-        Join Waitlist
-        <ArrowRight className="w-4 h-4 ml-2" />
-      </Button>
-    </form>
-  )}
-  <p className="text-zinc-500 text-sm text-center mt-2">
-    Join 1,000+ travelers on the waitlist!
-  </p>
-</div>
+          <div className="max-w-md mx-auto">
+            {submitted ? (
+              <div className="bg-green-900/50 border border-green-700 rounded-lg p-4 text-green-300 text-center">
+                🎉 You're on the waitlist! We’ll keep you posted.
+              </div>
+            ) : (
+              <form
+                name="travapp-waitlist"
+                method="POST"
+                data-netlify="true"
+                className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-lg p-4 flex gap-2"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const form = e.target as HTMLFormElement;
+                  const data = new FormData(form);
+                  fetch("/", {
+                    method: "POST",
+                    body: data,
+                  }).then(() => setSubmitted(true));
+                }}
+              >
+                <input type="hidden" name="form-name" value="travapp-waitlist" />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  className="bg-zinc-800/50 border-0 focus-visible:ring-primary"
+                />
+                <Button type="submit" className="bg-primary hover:bg-primary/80 text-white">
+                  Join Waitlist
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </form>
+            )}
+            <p className="text-zinc-500 text-sm text-center mt-2">
+              Join 1000+ travelers on the waitlist!
+            </p>
+          </div>
 
           <div className="mt-12 flex justify-center">
             <ArrowRight className="h-8 w-8 text-zinc-600 animate-bounce" />
@@ -93,7 +94,7 @@ export default function Home() {
 
       <section className="py-4 px-4 bg-primary/10 border-y border-primary text-center overflow-hidden">
         <p className="text-lg md:text-xl font-semibold text-primary animate-pulse">
-          1,200+ travelers are currently building their December trips to Ghana & Nigeria.
+          1200+ travelers are currently building their December trips to Ghana & Nigeria.
         </p>
       </section>
 
@@ -136,6 +137,60 @@ export default function Home() {
               Estimate My Trip
             </button>
           </a>
+        </div>
+      </section>
+
+      {/* Destinations */}
+      <section id="destinations" className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Where Are You Going?</h2>
+          <p className="text-zinc-400 text-center mb-12">
+            From parties in Lagos to culture in Cape Coast — build your dream trip.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
+              <div className="relative h-64 md:h-80 w-full">
+                <Image
+                  src="/images/ghana/ghana-accra.jpg"
+                  alt="Ghana"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-semibold mb-2">Ghana 🇬🇭</h3>
+                <p className="text-zinc-400 mb-4 flex-1">
+                  Experience the vibrant culture and rich history of Ghana.
+                </p>
+                <Link href="/tripestimate?destination=ghana" className="mt-auto">
+                  <Button className="w-full bg-primary hover:bg-primary/80 text-white">
+                    Plan a Trip to Ghana
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            <div className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 flex flex-col">
+              <div className="relative h-64 md:h-80 w-full">
+                <Image
+                  src="/images/nigeria/nigeria-lagos.jpg"
+                  alt="Nigeria"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-semibold mb-2">Nigeria 🇳🇬</h3>
+                <p className="text-zinc-400 mb-4 flex-1">
+                  Explore the bustling cities and diverse landscapes of Nigeria.
+                </p>
+                <Link href="/tripestimate?destination=nigeria" className="mt-auto">
+                  <Button className="w-full bg-primary hover:bg-primary/80 text-white">
+                    Plan a Trip to Nigeria
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
