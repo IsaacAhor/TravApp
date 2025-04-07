@@ -176,7 +176,7 @@ export default function PartnerJoinPage() {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
-                  className="w-full border rounded px-3 py-2"
+                  className="w-full border rounded px-3 py-2 text-black"
                   rows={4}
                   required
                 />
