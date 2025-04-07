@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function TouchdownPage() {
   return (
@@ -20,14 +21,38 @@ export default function TouchdownPage() {
 
 <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
   <a href="/touchdown/detty-december-top-5-banging-events-accra" className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 block">
+    <Image
+      src="/images/2girls-detty-december.jpg"
+      alt="Detty December in Accra"
+      width={400}
+      height={250}
+      className="rounded-lg mb-4 object-cover w-full h-auto"
+      priority
+    />
     <h3 className="text-xl font-semibold mb-2">🎉 Detty December: Top 5 Banging Events in Accra</h3>
     <p className="text-zinc-400">Discover the hottest parties, concerts, and festivals happening this December in Ghana's vibrant capital.</p>
   </a>
   <a href="/touchdown/budget-guide-ghana" className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 block">
-    <h3 className="text-xl font-semibold mb-2">💰 How to Budget a Trip from the US to Ghana</h3>
-    <p className="text-zinc-400">Plan your expenses smartly with our budgeting tips covering flights, accommodation, and activities.</p>
+    <Image
+      src="/images/kotoka-arrival.jpg"
+      alt="Arriving at Kotoka International Airport"
+      width={400}
+      height={250}
+      className="rounded-lg mb-4 object-cover w-full h-auto"
+      priority
+    />
+    <h3 className="text-xl font-semibold mb-2">💰 How to Budget a Trip from the US to Ghana (2025 Edition)</h3>
+    <p className="text-zinc-400">Your practical guide to flights, accommodation, food, and activities for an unforgettable yet affordable trip to Ghana.</p>
   </a>
   <a href="/touchdown/ghana-vs-nigeria" className="bg-zinc-900/50 backdrop-blur-sm border border-zinc-800 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 block">
+    <Image
+      src="/images/jollof.jpg"
+      alt="Ghana vs Nigeria Jollof"
+      width={400}
+      height={250}
+      className="rounded-lg mb-4 object-cover w-full h-auto"
+      priority
+    />
     <h3 className="text-xl font-semibold mb-2">🌍 Ghana vs. Nigeria: Which Should You Visit First?</h3>
     <p className="text-zinc-400">A quick guide comparing the best of both countries to help you decide your next adventure.</p>
   </a>

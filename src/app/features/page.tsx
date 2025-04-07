@@ -18,9 +18,9 @@ export default function FeaturesPage() {
 
           <div className="max-w-7xl mx-auto">
             <h1 className="text-3xl md:text-5xl font-bold mb-6 gradient-text text-center">Features</h1>
-            <p className="text-lg text-zinc-400 text-center">
-              Revolutionize the Way You Travel to Ghana and Nigeria with TravApp’s AI-Powered Itinerary Builder
-            </p>
+<p className="text-lg text-zinc-400 text-center">
+  Discover Ghana & Nigeria Like a Local - Craft Your Ultimate Trip with TravApp’s AI
+</p>
           </div>
         </div>
       </section>

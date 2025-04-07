@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TravApp - Travel Planning for Ghana & Nigeria",
-  description: "A subscription-based travel planning platform that makes visiting Ghana and Nigeria seamless, affordable, and deeply personalized.",
+  description: "Plan Your Dream Ghana & Nigeria Trip with AI—Join Now!",
 };
 
 export default function RootLayout({
