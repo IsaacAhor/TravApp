@@ -20,17 +20,17 @@ export default function GhanaVsNigeriaPage() {
           />
         </div>
 
-        <h1 className="text-3xl md:text-5xl font-bold mb-6 text-center">
+<h1 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 text-center px-2">
           🌍 🇬🇭/🇳🇬 Ghana vs. Nigeria: Fun, Culture, Vibes & Jollof – Who Really Runs West Africa?
         </h1>
 
-<p className="text-zinc-400 mb-8 text-center">
+<p className="text-zinc-400 mb-6 text-base sm:text-lg md:text-xl text-center px-4">
           Can’t decide between Ghana and Nigeria? Explore this vibe-based comparison of fun, food, music, and culture — and choose your own West African adventure.
         </p>
-        <p className="text-zinc-400 mb-8 text-center">
+        <p className="text-zinc-400 mb-6 text-base sm:text-lg md:text-xl text-center px-4">
           West Africa is calling, and two countries top the list: Ghana and Nigeria. Rich in history, rhythm, and personality, both are overflowing with experiences you won’t find anywhere else in the world. But if you had to choose one for your next trip, how do you decide?
         </p>
-        <p className="text-zinc-400 mb-8 text-center">
+        <p className="text-zinc-400 mb-6 text-base sm:text-lg md:text-xl text-center px-4">
           You don’t need a verdict. You just need to feel the vibe. Let’s break it down.
         </p>
 
