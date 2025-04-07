@@ -36,7 +36,7 @@ export default function PartnerJoinPage() {
     return newErrors;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -115,13 +115,28 @@ export default function PartnerJoinPage() {
 
               <div className="mb-4">
                 <label className="block mb-1 font-medium" htmlFor="category">Category</label>
-                <Input
+                <select
                   id="category"
                   name="category"
                   value={formData.category}
                   onChange={handleChange}
                   required
-                />
+                  className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select category</option>
+                  <option>Travel Agency</option>
+                  <option>Tour Operator</option>
+                  <option>Accommodation / Hotels</option>
+                  <option>Transportation / Car Rentals</option>
+                  <option>Event Organizer</option>
+                  <option>Food & Beverage</option>
+                  <option>Nightlife / Entertainment</option>
+                  <option>Cultural Experiences</option>
+                  <option>Photography / Media</option>
+                  <option>Shopping / Local Markets</option>
+                  <option>Wellness & Spa</option>
+                  <option>Other</option>
+                </select>
                 {errors.category && <p className="text-red-500 text-sm">{errors.category}</p>}
               </div>
 
@@ -153,13 +168,20 @@ export default function PartnerJoinPage() {
 
               <div className="mb-4">
                 <label className="block mb-1 font-medium" htmlFor="priceRange">Price Range</label>
-                <Input
+                <select
                   id="priceRange"
                   name="priceRange"
                   value={formData.priceRange}
                   onChange={handleChange}
                   required
-                />
+                  className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">Select price range</option>
+                  <option>$ - Budget Friendly</option>
+                  <option>$$ - Moderate</option>
+                  <option>$$$ - Premium</option>
+                  <option>$$$$ - Luxury</option>
+                </select>
                 {errors.priceRange && <p className="text-red-500 text-sm">{errors.priceRange}</p>}
               </div>
 
