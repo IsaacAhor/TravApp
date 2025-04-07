@@ -32,6 +32,7 @@ export default function TripSummary({
   const [showWaitlistPrompt, setShowWaitlistPrompt] = useState(false);
   const [showFinalMessage, setShowFinalMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [showError, setShowError] = useState(false);
 
   // Load saved trip on mount
   const [loaded, setLoaded] = useState(false);
@@ -140,7 +141,11 @@ export default function TripSummary({
           )}
 
           {errorMessage && (
-            <div className="mb-4 px-4 py-2 rounded bg-red-600 text-white text-center">
+            <div
+              className={`mb-4 px-4 py-2 rounded bg-red-600 text-white text-center transition-opacity duration-500 ${
+                showError ? "opacity-100" : "opacity-0"
+              }`}
+            >
               {errorMessage}
             </div>
           )}
@@ -156,6 +161,11 @@ export default function TripSummary({
                 flightCost <= 0
               ) {
                 setErrorMessage("Please kindly complete all required selections before proceeding.");
+                setShowError(true);
+                setTimeout(() => {
+                  setShowError(false);
+                  setErrorMessage("");
+                }, 3000);
                 return;
               }
               setErrorMessage("");
