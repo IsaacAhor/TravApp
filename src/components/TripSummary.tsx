@@ -140,15 +140,13 @@ export default function TripSummary({
             </div>
           )}
 
-          {errorMessage && (
-            <div
-              className={`mb-4 px-4 py-2 rounded bg-red-600 text-white text-center transition-opacity duration-500 ${
-                showError ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              {errorMessage}
-            </div>
-          )}
+          <div
+            className={`mb-4 px-4 py-2 rounded bg-red-600 text-white text-center transition-all duration-1000 ease-in-out transform ${
+              showError ? "opacity-100 scale-100" : "opacity-0 scale-95"
+            }`}
+          >
+            {errorMessage}
+          </div>
 
           <button
             onClick={() => {
@@ -164,7 +162,9 @@ export default function TripSummary({
                 setShowError(true);
                 setTimeout(() => {
                   setShowError(false);
-                  setErrorMessage("");
+                  setTimeout(() => {
+                    setErrorMessage("");
+                  }, 1000); // wait for fade out to finish
                 }, 3000);
                 return;
               }
