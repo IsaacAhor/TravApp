@@ -33,6 +33,9 @@ export default function TripEstimatePage() {
   const [month, setMonth] = useState("");
   const [flightClass, setFlightClass] = useState("Economy");
 
+  const [showSelections, setShowSelections] = useState(true);
+  const [waitlistJoined, setWaitlistJoined] = useState(false);
+
   const addonsCost = selectedAddons.reduce(
     (sum, addon) => sum + (addonPrices[addon] || 0),
     0
@@ -42,34 +45,38 @@ export default function TripEstimatePage() {
     <main className="min-h-screen">
       <Header />
 
-      <FlightEstimator
-        onFlightCostChange={setFlightCost}
-        region={region}
-        setRegion={setRegion}
-        destination={destination}
-        setDestination={setDestination}
-        month={month}
-        setMonth={setMonth}
-        flightClass={flightClass}
-        setFlightClass={setFlightClass}
-      />
+      {!waitlistJoined && showSelections && (
+        <>
+          <FlightEstimator
+            onFlightCostChange={setFlightCost}
+            region={region}
+            setRegion={setRegion}
+            destination={destination}
+            setDestination={setDestination}
+            month={month}
+            setMonth={setMonth}
+            flightClass={flightClass}
+            setFlightClass={setFlightClass}
+          />
 
-      <AddonsSelector
-        selectedAddons={selectedAddons}
-        setSelectedAddons={setSelectedAddons}
-      />
+          <AddonsSelector
+            selectedAddons={selectedAddons}
+            setSelectedAddons={setSelectedAddons}
+          />
 
-      <div className="max-w-3xl mx-auto my-8 p-4 border border-zinc-700 rounded-xl bg-zinc-900/50 backdrop-blur-sm">
-        <label className="block mb-2 text-sm font-medium">Number of Travelers</label>
-        <input
-          type="number"
-          min="1"
-          max="10"
-          value={travelers}
-          onChange={(e) => setTravelers(Number(e.target.value))}
-          className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
-        />
-      </div>
+          <div className="max-w-3xl mx-auto my-8 p-4 border border-zinc-700 rounded-xl bg-zinc-900/50 backdrop-blur-sm">
+            <label className="block mb-2 text-sm font-medium">Number of Travelers</label>
+            <input
+              type="number"
+              min="1"
+              max="10"
+              value={travelers}
+              onChange={(e) => setTravelers(Number(e.target.value))}
+              className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
+            />
+          </div>
+        </>
+      )}
 
       <TripSummary
         flightCost={flightCost}
@@ -81,6 +88,8 @@ export default function TripEstimatePage() {
         destination={destination}
         month={month}
         flightClass={flightClass}
+        setShowSelections={setShowSelections}
+        setWaitlistJoined={setWaitlistJoined}
       />
 
       <Footer />

@@ -12,6 +12,8 @@ interface TripSummaryProps {
   destination: string;
   month: string;
   flightClass: string;
+  setShowSelections: React.Dispatch<React.SetStateAction<boolean>>;
+  setWaitlistJoined: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function TripSummary({
@@ -24,6 +26,7 @@ export default function TripSummary({
   destination,
   month,
   flightClass,
+  setShowSelections,
 }: TripSummaryProps) {
   const [months, setMonths] = useState(12);
   const [showConfirm, setShowConfirm] = useState(false);
@@ -41,10 +44,15 @@ export default function TripSummary({
   if (!loaded && typeof window !== "undefined") {
     const saved = localStorage.getItem("tripPlan");
     if (saved) {
-      const data = JSON.parse(saved);
-      setMonths(data.months || 12);
-      setShowConfirm(true);
-      setMessage("Welcome back! We've preloaded your trip plan.");
+      try {
+        const data = JSON.parse(saved);
+        setMonths(data.months || 12);
+        setShowConfirm(true);
+        setMessage("Welcome back! We've preloaded your trip plan.");
+      } catch (e) {
+        console.error("Invalid saved trip data", e);
+        localStorage.removeItem("tripPlan");
+      }
     }
     setLoaded(true);
   }
@@ -282,7 +290,13 @@ Thank you for using TravApp!
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
                     setShowWaitlistPrompt(false);
-                    setShowFinalMessage(true);
+                    setTimeout(() => {
+                      setShowFinalMessage(true);
+                      setTimeout(() => {
+                        setShowFinalMessage(false);
+                        setShowSelections(false);
+                      }, 3000);
+                    }, 0);
                   }}
                   className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition"
                 >
@@ -292,6 +306,10 @@ Thank you for using TravApp!
                   onClick={() => {
                     setShowWaitlistPrompt(false);
                     setShowFinalMessage(true);
+                    setTimeout(() => {
+                      setShowFinalMessage(false);
+                      setShowSelections(false);
+                    }, 3000);
                   }}
                   className="w-full py-3 rounded-md border border-zinc-700 bg-zinc-800/50 hover:bg-primary hover:text-white text-white font-semibold transition"
                 >

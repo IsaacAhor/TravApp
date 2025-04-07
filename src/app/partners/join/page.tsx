@@ -7,6 +7,7 @@ import { Users, TrendingUp, DollarSign } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert } from "@/components/ui/alert";
+import SuccessMessage from "@/components/ui/SuccessMessage";
 
 export default function PartnerJoinPage() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,23 @@ export default function PartnerJoinPage() {
     priceRange: "",
     contactEmail: "",
   });
+
+  const categoryPriceMap: Record<string, string[]> = {
+    "Travel Agency": ["$100 - $500", "$500 - $1000"],
+    "Tour Operator": ["$50 - $200", "$200 - $500"],
+    "Accommodation / Hotels": ["$50 - $150", "$150 - $300", "$300+"],
+    "Transportation / Car Rentals": ["$20 - $100", "$100 - $300"],
+    "Event Organizer": ["$100 - $500", "$500+"],
+    "Food & Beverage": ["$10 - $50", "$50 - $150"],
+    "Nightlife / Entertainment": ["$20 - $100", "$100 - $300"],
+    "Cultural Experiences": ["$20 - $100", "$100 - $250"],
+    "Photography / Media": ["$50 - $200", "$200 - $500"],
+    "Shopping / Local Markets": ["$5 - $50", "$50 - $150"],
+    "Wellness & Spa": ["$30 - $150", "$150 - $300"],
+    "Other": ["$10 - $500+"],
+  };
+
+  const [priceOptions, setPriceOptions] = useState<string[]>([]);
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
@@ -37,7 +55,18 @@ export default function PartnerJoinPage() {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    if (name === "category") {
+      if (categoryPriceMap[value]) {
+        setPriceOptions(categoryPriceMap[value]);
+        setFormData((prev) => ({ ...prev, priceRange: "" }));
+      } else {
+        setPriceOptions([]);
+        setFormData((prev) => ({ ...prev, priceRange: "" }));
+      }
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -86,7 +115,7 @@ export default function PartnerJoinPage() {
       <section className="py-16 px-4 text-center">
         {submitted ? (
           <div className="max-w-xl mx-auto">
-            <Alert className="mb-4">Thank you! Your submission has been received.</Alert>
+            <SuccessMessage message="Thank you! Your submission has been received." />
           </div>
         ) : (
           <>
@@ -177,10 +206,9 @@ export default function PartnerJoinPage() {
                   className="w-full rounded-md border border-zinc-700 bg-zinc-800/50 p-2 focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select price range</option>
-                  <option>$ - Budget Friendly</option>
-                  <option>$$ - Moderate</option>
-                  <option>$$$ - Premium</option>
-                  <option>$$$$ - Luxury</option>
+                  {priceOptions.map((price) => (
+                    <option key={price} value={price}>{price}</option>
+                  ))}
                 </select>
                 {errors.priceRange && <p className="text-red-500 text-sm">{errors.priceRange}</p>}
               </div>

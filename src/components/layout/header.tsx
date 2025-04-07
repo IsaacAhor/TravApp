@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu } from "lucide-react";
@@ -7,7 +9,16 @@ export function Header() {
   return (
     <header className="py-4 px-4 border-b border-zinc-800 backdrop-blur-sm bg-background/80 fixed top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link
+          href="/"
+          className="flex items-center gap-2"
+          onClick={(e) => {
+            if (window.location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
+        >
           {/* Removed logo image */}
           <span className="font-bold text-xl">TravApp</span>
         </Link>
