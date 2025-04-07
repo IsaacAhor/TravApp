@@ -28,6 +28,11 @@ export default function TripEstimatePage() {
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const [travelers, setTravelers] = useState(1);
 
+  const [region, setRegion] = useState("");
+  const [destination, setDestination] = useState("");
+  const [month, setMonth] = useState("");
+  const [flightClass, setFlightClass] = useState("Economy");
+
   const addonsCost = selectedAddons.reduce(
     (sum, addon) => sum + (addonPrices[addon] || 0),
     0
@@ -37,7 +42,17 @@ export default function TripEstimatePage() {
     <main className="min-h-screen">
       <Header />
 
-      <FlightEstimator onFlightCostChange={setFlightCost} />
+      <FlightEstimator
+        onFlightCostChange={setFlightCost}
+        region={region}
+        setRegion={setRegion}
+        destination={destination}
+        setDestination={setDestination}
+        month={month}
+        setMonth={setMonth}
+        flightClass={flightClass}
+        setFlightClass={setFlightClass}
+      />
 
       <AddonsSelector
         selectedAddons={selectedAddons}
@@ -62,6 +77,10 @@ export default function TripEstimatePage() {
         selectedAddons={selectedAddons}
         setSelectedAddons={setSelectedAddons}
         travelers={travelers}
+        region={region}
+        destination={destination}
+        month={month}
+        flightClass={flightClass}
       />
 
       <Footer />

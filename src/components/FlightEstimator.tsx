@@ -51,14 +51,27 @@ const classMultipliers: Record<string, number> = {
 
 interface FlightEstimatorProps {
   onFlightCostChange: (cost: number) => void;
+  region: string;
+  setRegion: React.Dispatch<React.SetStateAction<string>>;
+  destination: string;
+  setDestination: React.Dispatch<React.SetStateAction<string>>;
+  month: string;
+  setMonth: React.Dispatch<React.SetStateAction<string>>;
+  flightClass: string;
+  setFlightClass: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function FlightEstimator({ onFlightCostChange }: FlightEstimatorProps) {
-  const [region, setRegion] = useState("");
-  const [destination, setDestination] = useState("");
-  const [month, setMonth] = useState("");
-  const [flightClass, setFlightClass] = useState("Economy");
-
+export default function FlightEstimator({
+  onFlightCostChange,
+  region,
+  setRegion,
+  destination,
+  setDestination,
+  month,
+  setMonth,
+  flightClass,
+  setFlightClass,
+}: FlightEstimatorProps) {
   const isHighSeason = highSeasonMonths.includes(month);
   const seasonType = isHighSeason ? "high" : "low";
 

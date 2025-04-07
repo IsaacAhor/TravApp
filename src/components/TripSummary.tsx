@@ -8,6 +8,10 @@ interface TripSummaryProps {
   selectedAddons: string[];
   setSelectedAddons: React.Dispatch<React.SetStateAction<string[]>>;
   travelers: number;
+  region: string;
+  destination: string;
+  month: string;
+  flightClass: string;
 }
 
 export default function TripSummary({
@@ -16,10 +20,18 @@ export default function TripSummary({
   selectedAddons,
   setSelectedAddons,
   travelers,
+  region,
+  destination,
+  month,
+  flightClass,
 }: TripSummaryProps) {
   const [months, setMonths] = useState(12);
   const [showConfirm, setShowConfirm] = useState(false);
   const [showToast, setShowToast] = useState(false);
+
+  const [showWaitlistPrompt, setShowWaitlistPrompt] = useState(false);
+  const [showFinalMessage, setShowFinalMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Load saved trip on mount
   const [loaded, setLoaded] = useState(false);
@@ -127,8 +139,26 @@ export default function TripSummary({
             </div>
           )}
 
+          {errorMessage && (
+            <div className="mb-4 px-4 py-2 rounded bg-red-600 text-white text-center">
+              {errorMessage}
+            </div>
+          )}
+
           <button
             onClick={() => {
+              if (
+                !region ||
+                !destination ||
+                !month ||
+                !flightClass ||
+                travelers < 1 ||
+                flightCost <= 0
+              ) {
+                setErrorMessage("Please kindly complete all required selections before proceeding.");
+                return;
+              }
+              setErrorMessage("");
               const tripData = {
                 flightCost,
                 addonsCost,
@@ -192,9 +222,80 @@ export default function TripSummary({
             </div>
           </div>
 
-          <button className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition">
-            Join the Waitlist
-          </button>
+          {!showWaitlistPrompt && !showFinalMessage && (
+            <button
+              onClick={() => setShowWaitlistPrompt(true)}
+              className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition"
+            >
+              Join the Waitlist
+            </button>
+          )}
+
+          {showWaitlistPrompt && !showFinalMessage && (
+            <div className="mt-6 space-y-4 text-center">
+              <p className="text-green-500 font-semibold">
+                🎉 You're on the waitlist! Would you like to download your trip summary?
+              </p>
+              <div className="flex flex-col md:flex-row gap-4 mt-4">
+                <button
+                  onClick={() => {
+                    const now = new Date();
+                    const formattedDate = now.toLocaleString(undefined, {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "2-digit",
+                      hour12: true,
+                    });
+
+                    const content = `TravApp Trip Summary
+Generated on: ${formattedDate}
+
+----------------------
+Flight Cost: $${flightCost.toFixed(2)}
+Add-ons: ${selectedAddons.length > 0 ? selectedAddons.join(", ") : "None"}
+Number of Travelers: ${travelers}
+Monthly Plan: ${months} months at $${((flightCost + addonsCost) * travelers / months).toFixed(2)} per month
+Total Cost: $${((flightCost + addonsCost) * travelers).toFixed(2)}
+----------------------
+
+Thank you for using TravApp!
+`;
+                    const blob = new Blob([content], { type: "text/plain" });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "trip-summary.txt";
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    setShowWaitlistPrompt(false);
+                    setShowFinalMessage(true);
+                  }}
+                  className="w-full py-3 rounded-md bg-primary hover:bg-primary/80 text-white font-semibold transition"
+                >
+                  Yes, download
+                </button>
+                <button
+                  onClick={() => {
+                    setShowWaitlistPrompt(false);
+                    setShowFinalMessage(true);
+                  }}
+                  className="w-full py-3 rounded-md border border-zinc-700 bg-zinc-800/50 hover:bg-primary hover:text-white text-white font-semibold transition"
+                >
+                  No, thanks
+                </button>
+              </div>
+            </div>
+          )}
+
+          {showFinalMessage && (
+            <p className="mt-6 text-green-500 font-semibold text-center">
+              Thanks for visiting TravApp. We’ll be in touch soon!
+            </p>
+          )}
         </div>
       )}
     </div>
